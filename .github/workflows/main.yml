@@ -33,4 +33,4 @@ jobs:
       
       - run: |
           pip install selenium
-          python main.py -u ${{ secrets.USERNAME }} -p ${{ secrets.PASSWORD }}  --reason ${ secrets.PKUAUTOSUBMIT_REASON } --track ${ secrets.PKUAUTOSUBMIT_TRACK } --street ${ secrets.PKUAUTOSUBMIT_STREET }
+          python main.py -u ${{ secrets.USERNAME }} -p ${{ secrets.PASSWORD }}  --reason ${{ secrets.PKUAUTOSUBMIT_REASON }} --track ${{ secrets.PKUAUTOSUBMIT_TRACK }} --street ${{ secrets.PKUAUTOSUBMIT_STREET }}
