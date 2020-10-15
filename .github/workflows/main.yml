@@ -10,8 +10,9 @@ on:
   pull_request:
     branches: [ main ]
   schedule:
+    # Beijing time == UTC + 8
     - cron: '15 1 * * *'
-    - cron: '35 8 * * *'
+    - cron: '45 8 * * *'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -32,4 +33,7 @@ jobs:
       
       - run: |
           pip install selenium
-          python main.py -u ${{ secrets.USERNAME }} -p ${{ secrets.PASSWORD }}
+          python main.py -u ${{ secrets.USERNAME }} -p ${{ secrets.PASSWORD }}  \
+                --reason "${secrets.PKUAutoSubmit_REASON}" \
+                --track "${secrets.PKUAutoSubmit_TRACK}" \
+                --street "${secrets.PKUAutoSubmit_STREET}"
